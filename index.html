@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giannis Dimitriadis — Game Designer &amp; Developer</title>
+  <meta name="description" content="Portfolio of Giannis Dimitriadis — game designer & developer crafting educational serious games, conversational-AI exhibits and VR experiences. Presented as an RPG adventure." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,4 96,28 96,74 50,98 4,74 4,28' fill='%230d0f1a' stroke='%23e8c15a' stroke-width='6'/%3E%3Ctext x='50' y='63' font-size='40' text-anchor='middle' fill='%23e8c15a' font-family='serif' font-weight='bold'%3EGD%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Three.js ember/starfield background -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <!-- ============ HUD NAV ============ -->
+  <header class="hud" id="hud">
+    <a class="hud__logo" href="#title" aria-label="Back to title screen">
+      <img src="assets/avatar-hud.png" alt="" class="hud__avatar" width="30" height="38" />
+      <span class="hud__name">Giannis&nbsp;Dimitriadis</span>
+    </a>
+    <nav class="hud__nav" id="hud-nav" aria-label="Main">
+      <a href="#character" class="hud__link">Character</a>
+      <a href="#quests" class="hud__link">Quests</a>
+      <a href="#chronicle" class="hud__link">Chronicle</a>
+      <a href="#trophies" class="hud__link">Trophies</a>
+      <a href="#contact" class="hud__link hud__link--cta">Join Party</a>
+    </nav>
+    <button class="hud__burger" id="hud-burger" aria-label="Open menu" aria-expanded="false" aria-controls="hud-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- ============ TITLE SCREEN ============ -->
+    <section class="title" id="title">
+      <p class="title__eyebrow hero-anim">— A Portfolio Adventure —</p>
+      <h1 class="title__name hero-anim">Giannis<br/>Dimitriadis</h1>
+      <p class="title__class hero-anim">
+        <span class="title__class-tag">CLASS</span> Game Designer &amp; Developer
+        <span class="title__sep">✦</span>
+        <span class="title__class-tag">GUILD</span> CERTH / ITI / BHV Group
+      </p>
+
+      <div class="title__plate hero-anim">
+        <div class="plate__row">
+          <span class="plate__label">LVL</span>
+          <span class="plate__lvl" id="level-number">6</span>
+          <div class="plate__bars">
+            <div class="mini-bar"><span class="mini-bar__label">HP</span><div class="mini-bar__track"><div class="mini-bar__fill mini-bar__fill--hp" style="--v:92%"></div></div></div>
+            <div class="mini-bar"><span class="mini-bar__label">MP</span><div class="mini-bar__track"><div class="mini-bar__fill mini-bar__fill--mp" style="--v:78%"></div></div></div>
+            <div class="mini-bar"><span class="mini-bar__label">XP</span><div class="mini-bar__track"><div class="mini-bar__fill mini-bar__fill--xp" style="--v:64%"></div></div></div>
+          </div>
+        </div>
+        <p class="plate__meta">6+ years XP · Thessaloniki, Greece · VR / WebGL / PC / Kiosk</p>
+      </div>
+
+      <div class="dialogue hero-anim" role="status">
+        <span class="dialogue__speaker">✦ Narrator</span>
+        <p class="dialogue__text"><span id="typewriter"></span><span class="dialogue__caret" aria-hidden="true">▌</span></p>
+      </div>
+
+      <a class="title__start hero-anim" href="#character" id="press-start">
+        <span class="title__start-blink">▶ PRESS START</span>
+      </a>
+
+      <div class="title__scroll hero-anim" aria-hidden="true">
+        <span class="title__scroll-mouse"></span>
+        <span>scroll to begin</span>
+      </div>
+    </section>
+
+    <!-- ============ CHARACTER SHEET ============ -->
+    <section class="section" id="character">
+      <header class="section__head">
+        <p class="section__kicker">· Chapter I ·</p>
+        <h2 class="section__title">Character Sheet</h2>
+        <p class="section__sub">Six years taking interactive experiences from concept to deployment — as the sole designer-developer on serious games, conversational-AI exhibits and museum installations.</p>
+      </header>
+
+      <div class="sheet">
+        <!-- Portrait card -->
+        <aside class="sheet__portrait panel corner-frame reveal">
+          <div class="portrait__frame">
+            <img src="assets/avatar.png" alt="Pixel-art portrait of Giannis Dimitriadis as an RPG adventurer, holding a sword and a spellbook" class="portrait__art" />
+          </div>
+          <h3 class="portrait__name">Giannis Dimitriadis</h3>
+          <p class="portrait__title">The Designer-Developer <em>(Hybrid Class)</em></p>
+          <ul class="portrait__facts">
+            <li><span>Guild</span><strong>Brain, Health &amp; VR Group — CERTH/ITI</strong></li>
+            <li><span>Base</span><strong>Thessaloniki, Greece</strong></li>
+            <li><span>Engines</span><strong>Unreal Engine 5 · Unity</strong></li>
+            <li><span>Realms</span><strong>VR · WebGL · PC · Touch Kiosks</strong></li>
+            <li><span>Tongues</span><strong>Greek (native) · English (full prof.)</strong></li>
+          </ul>
+          <div class="portrait__badges">
+            <span class="badge">🎮 Serious Games</span>
+            <span class="badge">🗣 Conversational AI</span>
+            <span class="badge">🏛 Museum Exhibits</span>
+          </div>
+        </aside>
+
+        <!-- Attributes -->
+        <div class="sheet__stats panel corner-frame reveal">
+          <h3 class="panel__heading">Attributes</h3>
+          <ul class="stats">
+            <li class="stat" data-value="92"><div class="stat__row"><span class="stat__name">Game &amp; Scenario Design</span><span class="stat__num">0</span></div><div class="stat__track"><div class="stat__fill"></div></div><p class="stat__desc">Decision-moment systems · progression · balancing · design docs</p></li>
+            <li class="stat" data-value="90"><div class="stat__row"><span class="stat__name">Unreal Engine 5 · Blueprints</span><span class="stat__num">0</span></div><div class="stat__track"><div class="stat__fill"></div></div><p class="stat__desc">Gameplay architecture · state machines · interfaces · packaging</p></li>
+            <li class="stat" data-value="88"><div class="stat__row"><span class="stat__name">Characters &amp; Animation</span><span class="stat__num">0</span></div><div class="stat__track"><div class="stat__fill"></div></div><p class="stat__desc">MetaHuman · Anim Blueprints · lip-sync pipelines · MetaTailor</p></li>
+            <li class="stat" data-value="86"><div class="stat__row"><span class="stat__name">AI &amp; Conversational Systems</span><span class="stat__num">0</span></div><div class="stat__track"><div class="stat__fill"></div></div><p class="stat__desc">Convai · LLM dialogue · STT/TTS (ElevenLabs) · gesture &amp; face tracking</p></li>
+            <li class="stat" data-value="84"><div class="stat__row"><span class="stat__name">Unity · C#</span><span class="stat__num">0</span></div><div class="stat__track"><div class="stat__fill"></div></div><p class="stat__desc">VR titles · WebGL builds · performance profiling</p></li>
+            <li class="stat" data-value="80"><div class="stat__row"><span class="stat__name">Python · Computer Vision</span><span class="stat__num">0</span></div><div class="stat__track"><div class="stat__fill"></div></div><p class="stat__desc">YOLO pose estimation · MediaPipe · OpenCV</p></li>
+            <li class="stat" data-value="76"><div class="stat__row"><span class="stat__name">Tooling &amp; Delivery</span><span class="stat__num">0</span></div><div class="stat__track"><div class="stat__fill"></div></div><p class="stat__desc">Git + LFS · Azure DevOps · cross-platform builds</p></li>
+            <li class="stat" data-value="62"><div class="stat__row"><span class="stat__name">Web Development <em class="stat__legacy">(legacy skill)</em></span><span class="stat__num">0</span></div><div class="stat__track"><div class="stat__fill"></div></div><p class="stat__desc">PHP · JavaScript · MySQL · third-party APIs</p></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Perks -->
+      <div class="perks">
+        <article class="perk panel reveal"><span class="perk__icon">🗡️</span><h4>Solo Adventurer</h4><p>Owns projects end-to-end — design doc to deployment — as the sole designer-developer.</p></article>
+        <article class="perk panel reveal"><span class="perk__icon">🏛️</span><h4>Lore Translator</h4><p>Turns expert content from scientists, academics and curators into playable systems.</p></article>
+        <article class="perk panel reveal"><span class="perk__icon">🌀</span><h4>Realm Walker</h4><p>Ships across VR, WebGL, PC and multi-display touch kiosks without breaking stride.</p></article>
+        <article class="perk panel reveal"><span class="perk__icon">⚒️</span><h4>Pragmatic Smith</h4><p>Full-stack past life grants a pragmatic, ship-it approach to problem-solving.</p></article>
+      </div>
+    </section>
+
+    <!-- ============ QUEST LOG ============ -->
+    <section class="section" id="quests">
+      <header class="section__head">
+        <p class="section__kicker">· Chapter II ·</p>
+        <h2 class="section__title">Quest Log</h2>
+        <p class="section__sub">Selected projects, logged as quests. Main quests are in active development; completed quests are deployed in the wild — some in actual museums.</p>
+      </header>
+
+      <div class="quests">
+
+        <article class="quest panel corner-frame reveal quest--main">
+          <div class="quest__top">
+            <span class="quest__type">⚔ Main Quest</span>
+            <span class="pill pill--active">In Progress</span>
+          </div>
+          <h3 class="quest__title">NutriRoots</h3>
+          <p class="quest__role">Educational Serious Game · Sole Designer &amp; Developer</p>
+          <p class="quest__desc">A first-person time-travel game teaching Greek students (14–16) the evolutionary origins of diet-related conditions through the Mismatch Hypothesis — four historical eras plus a framing lab, guided by nine MetaHuman NPCs with Greek voice-over, fitted to a single class period.</p>
+          <ul class="quest__objectives">
+            <li>Built the NPC three-state interaction architecture (Idle / Notice / Talking) in Blueprints, decoupled via a Blueprint Interface</li>
+            <li>Designed an offline-baked MetaHuman lip-sync pipeline → runtime slot-montage playback</li>
+            <li>Owns the full MetaHuman pipeline: creation, MetaTailor clothing, groom LODs, cloth clipping</li>
+          </ul>
+          <div class="quest__loot"><span class="loot">UE 5.6</span><span class="loot">Blueprints</span><span class="loot">MetaHuman</span><span class="loot">ElevenLabs TTS</span><span class="loot">Git LFS · Azure DevOps</span></div>
+          <p class="quest__allies"><strong>Allies:</strong> Lab of Biological Anthropology &amp; Inst. of Bioarchaeological Research, Democritus University of Thrace</p>
+          <div class="quest__reward"><span>Reward:</span> +3000 XP · School pilot study coming March 2027</div>
+        </article>
+
+        <article class="quest panel corner-frame reveal quest--epic">
+          <div class="quest__top">
+            <span class="quest__type">🌟 Epic Quest</span>
+            <span class="pill pill--soon">Opens Sept 2026</span>
+          </div>
+          <h3 class="quest__title">AstronautConvai</h3>
+          <p class="quest__role">Conversational-AI Museum Exhibit · Technical Lead &amp; Sole Technical Contributor</p>
+          <p class="quest__desc">A talk-to-it Apollo-era astronaut for the JOIST Space exhibition — voice or preset questions, Greek or English, on a dual-display touch kiosk. Built on a reusable UE 5.6 template where a new museum character needs new data, not new engineering. Expected reach: ~5,000 students.</p>
+          <ul class="quest__objectives">
+            <li>Data-driven character/language config over a shared GameMode / Pawn / UI codebase</li>
+            <li>Conversation state machine (Idle → Listening → Processing → Speaking → Error) gating touch input on an unsupervised, kid-facing kiosk</li>
+            <li>Fixed MetaHuman/Convai rig deformation without touching plugin assets — fixes survive updates</li>
+          </ul>
+          <div class="quest__loot"><span class="loot">UE 5.6</span><span class="loot">Convai</span><span class="loot">MetaHuman</span><span class="loot">MetaTailor Pro</span><span class="loot">Multi-Window Kiosk</span></div>
+          <p class="quest__allies"><strong>Allies:</strong> CERTH/ITI · JOIST (exhibition partner)</p>
+          <div class="quest__reward"><span>Reward:</span> +3000 XP · Runs Sept 2026 – July 2027</div>
+        </article>
+
+        <article class="quest panel corner-frame reveal">
+          <div class="quest__top">
+            <span class="quest__type">🗝 Side Quest</span>
+            <span class="pill pill--done">Permanent Installation</span>
+          </div>
+          <h3 class="quest__title">Socrates Conversational Avatar</h3>
+          <p class="quest__role">Concept Originator · Python / MediaPipe Developer</p>
+          <p class="quest__desc">Originated the concept of a talk-to-it 3D Socrates — now permanently installed at Noesis, Thessaloniki. Built the real-time face-tracking module (Python + MediaPipe) that turns the avatar's head toward the visitor, making the exchange feel present and believable.</p>
+          <div class="quest__loot"><span class="loot">Python</span><span class="loot">MediaPipe</span><span class="loot">Unreal Engine</span></div>
+          <div class="quest__reward"><span>Reward:</span> +1200 XP · Seeded the reusable kiosk approach</div>
+        </article>
+
+        <article class="quest panel corner-frame reveal">
+          <div class="quest__top">
+            <span class="quest__type">🛡 Guild Quest</span>
+            <span class="pill pill--done">Completed</span>
+          </div>
+          <h3 class="quest__title">e-SKAPANI — Archaeological Museum of Thessaloniki</h3>
+          <p class="quest__role">VR Educational Game · Designer &amp; Developer</p>
+          <p class="quest__desc">A VR serious game deployed on-site at the museum, built around immersive storytelling and scenario-based learning — profiled to hold stable frame rates on Oculus Rift S and Quest 2.</p>
+          <div class="quest__loot"><span class="loot">Unity</span><span class="loot">C#</span><span class="loot">Rift S · Quest 2</span></div>
+          <div class="quest__reward"><span>Reward:</span> +4000 XP · Deployed on-site</div>
+        </article>
+
+        <article class="quest panel corner-frame reveal">
+          <div class="quest__top">
+            <span class="quest__type">🗝 Side Quest</span>
+            <span class="pill pill--done">Completed</span>
+          </div>
+          <h3 class="quest__title">Museum of the Macedonian Struggle</h3>
+          <p class="quest__role">WebGL Point-and-Click Adventure · Designer &amp; Developer</p>
+          <p class="quest__desc">A browser-based 2D point-and-click narrative adventure taken from concept to launch — playable on mobile and desktop, presenting the museum's subject matter through interactive narrative challenges.</p>
+          <div class="quest__loot"><span class="loot">Unity</span><span class="loot">C#</span><span class="loot">WebGL</span></div>
+          <div class="quest__reward"><span>Reward:</span> +1000 XP · Concept → launch</div>
+        </article>
+
+        <article class="quest panel corner-frame reveal">
+          <div class="quest__top">
+            <span class="quest__type">🗝 Side Quest</span>
+            <span class="pill pill--done">Completed</span>
+          </div>
+          <h3 class="quest__title">Gesture-Controlled Ethical Voting Game</h3>
+          <p class="quest__role">Interactive Installation · Designer &amp; Developer</p>
+          <p class="quest__desc">A real-time installation where participants vote by raising their hands — a custom Python YOLO pose-estimation pipeline handles the gesture recognition.</p>
+          <div class="quest__loot"><span class="loot">Python</span><span class="loot">YOLO</span><span class="loot">OpenCV</span></div>
+          <div class="quest__reward"><span>Reward:</span> +800 XP · Hands in the air</div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ CHRONICLE / TIMELINE ============ -->
+    <section class="section" id="chronicle">
+      <header class="section__head">
+        <p class="section__kicker">· Chapter III ·</p>
+        <h2 class="section__title">The Chronicle</h2>
+        <p class="section__sub">An adventurer's log — guilds joined, trades mastered, training grounds survived.</p>
+      </header>
+
+      <div class="timeline">
+        <div class="timeline__spine" aria-hidden="true"><div class="timeline__spine-fill"></div></div>
+
+        <article class="tl-entry reveal">
+          <div class="tl-entry__node" aria-hidden="true">⚔</div>
+          <div class="tl-entry__card panel">
+            <span class="tl-entry__date">06/2020 — Present</span>
+            <h3>Game Designer &amp; Developer / Research Assistant</h3>
+            <p class="tl-entry__org">Brain, Health &amp; Virtual Reality Group — CERTH/ITI, Thessaloniki</p>
+            <p>Sole designer and developer on educational serious games and interactive installations — owning game &amp; scenario design, implementation, character pipelines and deployment. Collaborates with scientific, academic and cultural partners; works remote-first with responsibility for architecture and delivery across UE5, Unity and Python.</p>
+          </div>
+        </article>
+
+        <article class="tl-entry reveal">
+          <div class="tl-entry__node" aria-hidden="true">🛠</div>
+          <div class="tl-entry__card panel">
+            <span class="tl-entry__date">06/2018 — 12/2019</span>
+            <h3>Full-Stack Web Developer</h3>
+            <p class="tl-entry__org">Bet Data Services, Thessaloniki</p>
+            <p>Built and maintained features for a live betting platform (PHP, JavaScript, HTML/CSS). Led functional upgrades to the casino module, integrated third-party APIs, and shipped on tight deadlines in a small agile team.</p>
+          </div>
+        </article>
+
+        <article class="tl-entry reveal">
+          <div class="tl-entry__node" aria-hidden="true">🎓</div>
+          <div class="tl-entry__card panel">
+            <span class="tl-entry__date">10/2010 — 06/2017</span>
+            <h3>BSc in Applied Informatics <span class="tl-entry__tag">Training Arc</span></h3>
+            <p class="tl-entry__org">University of Macedonia, School of Information Sciences</p>
+            <p>Where the character build began — foundations in programming, systems and object-oriented design.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ TROPHIES ============ -->
+    <section class="section" id="trophies">
+      <header class="section__head">
+        <p class="section__kicker">· Chapter IV ·</p>
+        <h2 class="section__title">Trophy Hall</h2>
+        <p class="section__sub">Achievements unlocked along the way.</p>
+      </header>
+
+      <div class="trophies">
+        <article class="trophy panel reveal trophy--gold">
+          <span class="trophy__icon">📜</span>
+          <h3>Published Scroll</h3>
+          <p class="trophy__detail">“Improving the feeling of presence and immersion through convincing embodiment in VR” — EuroVR 2020 Proceedings, pp. 61–64 (Anastasovitis, Dimitriadis, Nikolopoulos, Kompatsiaris).</p>
+          <span class="trophy__rarity">Legendary</span>
+        </article>
+        <article class="trophy panel reveal">
+          <span class="trophy__icon">🧠</span>
+          <h3>AI &amp; Games Summer School ×2</h3>
+          <p class="trophy__detail">Summer School on Artificial Intelligence and Games — 2021 &amp; 2022, 40 hours each.</p>
+          <span class="trophy__rarity">Rare</span>
+        </article>
+        <article class="trophy panel reveal">
+          <span class="trophy__icon">🥽</span>
+          <h3>VR-GAMES-LAB</h3>
+          <p class="trophy__detail">3D Serious Games for Culture and Education with Virtual Reality — 2019.</p>
+          <span class="trophy__rarity">Rare</span>
+        </article>
+        <article class="trophy panel reveal">
+          <span class="trophy__icon">🗣️</span>
+          <h3>Tongues of the Realm</h3>
+          <p class="trophy__detail">Greek — native fluency. English — full professional proficiency.</p>
+          <span class="trophy__rarity">Passive Skill</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section--last" id="contact">
+      <header class="section__head">
+        <p class="section__kicker">· Final Chapter ·</p>
+        <h2 class="section__title">Join the Party</h2>
+      </header>
+
+      <div class="contact panel corner-frame reveal">
+        <div class="dialogue dialogue--contact">
+          <span class="dialogue__speaker">✦ Giannis</span>
+          <p class="dialogue__text">“Every good party needs a designer-developer. If you have a quest — a game, an exhibit, an experience — send a raven.”</p>
+        </div>
+        <div class="contact__actions">
+          <a class="btn btn--primary" href="mailto:johndim21@gmail.com">📧 Send a Raven</a>
+          <a class="btn" href="https://linkedin.com/in/johndim21" target="_blank" rel="noopener">💼 LinkedIn</a>
+          <a class="btn" href="https://github.com/johndim21" target="_blank" rel="noopener">🐙 GitHub</a>
+        </div>
+        <p class="contact__loc">📍 Thessaloniki, Greece — open to remote parties</p>
+      </div>
+
+      <footer class="footer">
+        <p>Crafted with <strong>GSAP</strong> &amp; <strong>Three.js</strong> · © 2026 Giannis Dimitriadis</p>
+        <p class="footer__hint" aria-hidden="true">psst — ↑ ↑ ↓ ↓ ← → ← → B A</p>
+      </footer>
+    </section>
+
+  </main>
+
+  <!-- Level-up easter egg overlay -->
+  <div class="levelup" id="levelup" aria-hidden="true">
+    <div class="levelup__box">
+      <span class="levelup__burst">✦</span>
+      <p class="levelup__text">LEVEL UP!</p>
+      <p class="levelup__sub">You found the secret. Recruiter +10 charisma.</p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
