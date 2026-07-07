@@ -7,7 +7,8 @@
       "PowerShell(python -c \"import PIL; print\\(PIL.__version__\\)\")",
       "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\johndim\\\\Desktop\\\\PortfolioRPG\\\\assets\")",
       "PowerShell(python \"C:\\\\Users\\\\johndim\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-johndim-Desktop-PortfolioRPG\\\\a15ad41b-0c3e-4212-b4ca-018fc47d646e\\\\scratchpad\\\\make_avatar.py\")",
-      "PowerShell(python -c \"from PIL import Image; im = Image.open\\(r'C:\\\\Users\\\\johndim\\\\Desktop\\\\PortfolioRPG\\\\assets\\\\avatar.png'\\); print\\(im.mode, im.size, 'corner alpha:', im.getpixel\\(\\(0,0\\)\\)[3], im.getpixel\\(\\(609,0\\)\\)[3], im.getpixel\\(\\(0,775\\)\\)[3]\\)\")"
+      "PowerShell(python -c \"from PIL import Image; im = Image.open\\(r'C:\\\\Users\\\\johndim\\\\Desktop\\\\PortfolioRPG\\\\assets\\\\avatar.png'\\); print\\(im.mode, im.size, 'corner alpha:', im.getpixel\\(\\(0,0\\)\\)[3], im.getpixel\\(\\(609,0\\)\\)[3], im.getpixel\\(\\(0,775\\)\\)[3]\\)\")",
+      "PowerShell(python \"C:\\\\Users\\\\johndim\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-johndim-Desktop-PortfolioRPG\\\\a15ad41b-0c3e-4212-b4ca-018fc47d646e\\\\scratchpad\\\\make_favicon.py\")"
     ]
   }
 }
