@@ -17,7 +17,7 @@
   --xp: #7bd88f;
   --line: rgba(232, 193, 90, 0.28);
   --line-soft: rgba(232, 193, 90, 0.14);
-  --font-display: "Cinzel", "Times New Roman", serif;
+  --font-display: "Almendra", "Times New Roman", serif;
   --font-body: "Spectral", Georgia, serif;
   --font-pixel: "Press Start 2P", monospace;
   --shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
@@ -118,7 +118,7 @@ a { color: var(--gold); text-decoration: none; }
 
 .hud__link {
   font-family: var(--font-display);
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1009,7 +1009,7 @@ html.motion-off .reveal, html.motion-off .hero-anim { opacity: 1 !important; tra
 
   body.nav-open .hud__nav { transform: translateY(0); opacity: 1; pointer-events: auto; }
 
-  .hud__link { padding: 0.9rem 1.5rem; border-bottom: 1px solid var(--line-soft); font-size: 0.9rem; }
+  .hud__link { padding: 0.9rem 1.5rem; border-bottom: 1px solid var(--line-soft); font-size: 1.05rem; }
 
   .hud__link--cta { margin: 0.8rem 1.5rem 0; text-align: center; border-radius: 5px; }
 
