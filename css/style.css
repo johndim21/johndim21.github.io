@@ -728,6 +728,10 @@ body.nav-open .hud__burger span:nth-child(3) { transform: translateY(-7px) rotat
 .quest__allies { font-size: 0.8rem; color: var(--ink-dim); }
 .quest__allies strong { color: var(--ink); font-weight: 600; }
 
+.quest__links { font-size: 0.8rem; color: var(--ink-dim); }
+.quest__links strong { color: var(--ink); font-weight: 600; }
+.quest__links a:hover { text-decoration: underline; }
+
 .quest__reward {
   margin-top: auto;
   padding-top: 0.75rem;
