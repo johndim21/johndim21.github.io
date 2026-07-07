@@ -1,20 +1,6 @@
 # Giannis Dimitriadis — RPG Portfolio
 
-An interactive, RPG-themed portfolio website: skills as a character sheet, projects as a quest log, career as an adventurer's chronicle. Built with vanilla HTML/CSS/JS plus **GSAP** (ScrollTrigger) for scroll choreography and **Three.js** for the drifting ember-particle background.
-
-## Run locally
-
-Any static file server works. For example:
-
-```
-python -m http.server 8123
-```
-
-Then open http://localhost:8123.
-
-## Deploy
-
-The site is fully static (`index.html`, `css/`, `js/`) — drop it on GitHub Pages, Netlify, Vercel, or any static host. GSAP, Three.js, and fonts load from CDNs.
+An interactive, RPG-themed portfolio website: skills as a character sheet, projects as a quest log, career as an adventurer's chronicle. Built with vanilla HTML/CSS/JS plus **GSAP** (ScrollTrigger) for scroll choreography and **Three.js** for the drifting ember-particle background..
 
 ## Features
 
