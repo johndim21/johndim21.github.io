@@ -161,6 +161,20 @@
       disc(bx, by, r - 2, null, "destination-out");
       disc(bx, by, r - 1, PAL.moonDark, "source-atop");
       g.globalCompositeOperation = "source-over";
+
+      // Hand-cleanup for the r=11 sprite: the scanline circles jog by one
+      // pixel in four spots, so straighten the outline there
+      g.fillStyle = PAL.moonDark;
+      g.fillRect(cx - 6, cy + 6, 1, 1);   // horn top edge: close the gap
+      g.fillRect(cx + 3, cy - 3, 1, 1);   // inner edge: close the notch
+      g.fillRect(cx + 10, cy, 1, 1);      // right edge: keep the line running
+      g.fillRect(cx, cy + 10, 1, 1);      // bottom edge: keep the line running
+      g.fillStyle = PAL.moon;
+      g.fillRect(cx - 6, cy + 7, 1, 1);   // stray dark pixel inside the horn
+      g.fillStyle = PAL.moonLight;
+      g.fillRect(cx + 4, cy - 3, 1, 1);   // stray dark pixel on the inner edge
+      g.clearRect(cx + 11, cy, 1, 1);     // shave the 1px bumps left outside
+      g.clearRect(cx, cy + 11, 1, 1);
       return c;
     }
 
