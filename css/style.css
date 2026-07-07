@@ -53,6 +53,7 @@ a { color: var(--gold); text-decoration: none; }
   height: 100%;
   z-index: -2;
   display: block;
+  image-rendering: pixelated;
 }
 
 .vignette {
@@ -170,7 +171,6 @@ body.nav-open .hud__burger span:nth-child(3) { transform: translateY(-7px) rotat
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
   padding: 6.5rem 1.25rem 4rem;
   position: relative;
 }
@@ -187,7 +187,7 @@ body.nav-open .hud__burger span:nth-child(3) { transform: translateY(-7px) rotat
 .title__name {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(2.6rem, 9vw, 5.6rem);
+  font-size: clamp(2rem, 4.2vw, 3.3rem);
   line-height: 1.04;
   letter-spacing: 0.02em;
   background: linear-gradient(180deg, #fdf3d0 0%, var(--gold) 55%, var(--gold-deep) 100%);
@@ -203,6 +203,8 @@ body.nav-open .hud__burger span:nth-child(3) { transform: translateY(-7px) rotat
   color: var(--ink-dim);
   margin-bottom: 2rem;
 }
+
+.title__class-item { white-space: nowrap; }
 
 .title__class-tag {
   font-family: var(--font-pixel);
@@ -362,6 +364,55 @@ body.nav-open .hud__burger span:nth-child(3) { transform: translateY(-7px) rotat
   0% { transform: translateY(0); opacity: 1; }
   70% { transform: translateY(10px); opacity: 0; }
   100% { transform: translateY(0); opacity: 0; }
+}
+
+/* title layout — text column + character art */
+
+.title__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(1rem, 3vw, 3rem);
+  align-items: center;
+  width: min(1100px, 100%);
+}
+
+.title__text {
+  grid-column: 1;
+  text-align: left;
+}
+
+.title__art {
+  grid-column: 2;
+  grid-row: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.title__hero-art {
+  width: 100%;
+  max-width: min(540px, 58vh);
+  height: auto;
+  filter: drop-shadow(0 20px 44px rgba(0, 0, 0, 0.55))
+          drop-shadow(0 0 34px rgba(232, 193, 90, 0.1));
+  animation: heroBob 5.5s ease-in-out infinite;
+}
+
+.title__art::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 9%;
+  width: 62%;
+  height: 10%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(255, 138, 61, 0.18), transparent 70%);
+  filter: blur(6px);
+  z-index: -1;
+}
+
+@keyframes heroBob {
+  50% { transform: translateY(-8px); }
 }
 
 /* ---------- sections ---------- */
@@ -901,8 +952,34 @@ html.motion-off .reveal, html.motion-off .hero-anim { opacity: 1 !important; tra
   .sheet__portrait { max-width: 480px; margin: 0 auto; width: 100%; }
 }
 
+@media (max-width: 879px) {
+  .title__layout {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    justify-items: center;
+  }
+
+  .title__text {
+    grid-column: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title__art { grid-column: auto; grid-row: auto; }
+
+  .title__hero-art { max-width: min(250px, 30vh); }
+}
+
 @media (max-width: 720px) {
   body { font-size: 1rem; }
+
+  .title { padding-top: 4.5rem; }
+  .title__hero-art { max-width: min(170px, 20vh); }
+  .title__class { margin-bottom: 1.2rem; }
+  .title__plate { margin-bottom: 1.1rem; }
+  .title__start { margin-top: 1.2rem; }
 
   .hud__name { display: none; }
 
