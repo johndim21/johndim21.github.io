@@ -984,6 +984,7 @@ html.motion-off .reveal, html.motion-off .hero-anim { opacity: 1 !important; tra
   .title__class { margin-bottom: 1.2rem; }
   .title__plate { margin-bottom: 1.1rem; }
   .title__start { margin-top: 1.2rem; }
+  .title__scroll { display: none; }
 
   .hud__name { display: none; }
 
