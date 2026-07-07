@@ -514,7 +514,7 @@
   var LINES = [
     "Ah, a visitor! You stand before the chronicle of a designer-developer of serious games…",
     "Six years of quests: MetaHumans taught to speak, museums brought to life, students turned into time-travellers.",
-    "Scroll onward, traveller — the character sheet awaits."
+    "Scroll onward, traveller, the character sheet awaits."
   ];
 
   (function typewriter() {
