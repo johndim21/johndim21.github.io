@@ -3,9 +3,10 @@
   "configurations": [
     {
       "name": "portfolio",
-      "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8123"],
-      "port": 8123
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "python -m http.server %PORT%"],
+      "port": 8123,
+      "autoPort": true
     }
   ]
 }

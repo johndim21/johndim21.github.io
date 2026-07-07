@@ -37,7 +37,9 @@
       pines: "#090c15",
       ground: "#07080e",
       moon: "#d8c383",
+      moonMid: "#c9af74",
       moonDark: "#b09a5e",
+      moonLight: "#ecdca4",
       log: "#2c1e10",
       star: "#e9e4d6",
       gold: "#e8c15a",
@@ -140,16 +142,44 @@
     function makeMoon(r) {
       var c = document.createElement("canvas");
       c.width = c.height = r * 2 + 2;
-      var g = c.getContext("2d"), cx = r + 1, cy = r + 1;
-      g.fillStyle = PAL.moon;
-      for (var dy = -r; dy <= r; dy++) {
-        var w = Math.floor(Math.sqrt(r * r - dy * dy));
+      var g = c.getContext("2d"), cx = r + 1, cy = r + 1, dy, w;
+
+      // Shaded disc first; the lit disc offset up-left leaves a crescent
+      // of shadow along the lower-right limb
+      g.fillStyle = PAL.moonMid;
+      for (dy = -r; dy <= r; dy++) {
+        w = Math.floor(Math.sqrt(r * r - dy * dy));
         g.fillRect(cx - w, cy + dy, w * 2 + 1, 1);
       }
+      var r2 = r - 1;
+      g.fillStyle = PAL.moon;
+      for (dy = -r2; dy <= r2; dy++) {
+        w = Math.floor(Math.sqrt(r2 * r2 - dy * dy));
+        g.fillRect(cx - 1 - w, cy - 1 + dy, w * 2 + 1, 1);
+      }
+
+      // Maria — broad mid-tone patches under the craters
+      g.fillStyle = PAL.moonMid;
+      g.fillRect(cx + 2, cy - 4, 4, 2);
+      g.fillRect(cx + 3, cy - 2, 2, 1);
+      g.fillRect(cx - 8, cy - 1, 2, 2);
+
+      // Craters
       g.fillStyle = PAL.moonDark;
       g.fillRect(cx - 4, cy - 2, 3, 2);
       g.fillRect(cx + 1, cy + 3, 2, 2);
       g.fillRect(cx - 1, cy - 6, 2, 1);
+      g.fillRect(cx + 4, cy - 4, 2, 2);
+      g.fillRect(cx - 7, cy + 2, 2, 2);
+      g.fillRect(cx - 3, cy + 5, 3, 2);
+      g.fillRect(cx + 6, cy - 1, 1, 1);
+      g.fillRect(cx - 6, cy - 5, 1, 1);
+      g.fillRect(cx + 3, cy - 8, 1, 1);
+
+      // Sunlit lower rims on the two largest craters
+      g.fillStyle = PAL.moonLight;
+      g.fillRect(cx - 3, cy, 2, 1);
+      g.fillRect(cx - 2, cy + 7, 2, 1);
       return c;
     }
 
