@@ -36,10 +36,9 @@
       castle: "#191c30",
       pines: "#090c15",
       ground: "#07080e",
-      moon: "#d8c383",
-      moonMid: "#c9af74",
-      moonDark: "#b09a5e",
-      moonLight: "#ecdca4",
+      moon: "#ffd54f",
+      moonDark: "#e2a71e",
+      moonLight: "#fff0a6",
       log: "#2c1e10",
       star: "#e9e4d6",
       gold: "#e8c15a",
@@ -142,44 +141,26 @@
     function makeMoon(r) {
       var c = document.createElement("canvas");
       c.width = c.height = r * 2 + 2;
-      var g = c.getContext("2d"), cx = r + 1, cy = r + 1, dy, w;
+      var g = c.getContext("2d"), cx = r + 1, cy = r + 1;
 
-      // Shaded disc first; the lit disc offset up-left leaves a crescent
-      // of shadow along the lower-right limb
-      g.fillStyle = PAL.moonMid;
-      for (dy = -r; dy <= r; dy++) {
-        w = Math.floor(Math.sqrt(r * r - dy * dy));
-        g.fillRect(cx - w, cy + dy, w * 2 + 1, 1);
-      }
-      var r2 = r - 1;
-      g.fillStyle = PAL.moon;
-      for (dy = -r2; dy <= r2; dy++) {
-        w = Math.floor(Math.sqrt(r2 * r2 - dy * dy));
-        g.fillRect(cx - 1 - w, cy - 1 + dy, w * 2 + 1, 1);
+      function disc(x, y, rad, color, comp) {
+        g.globalCompositeOperation = comp || "source-over";
+        g.fillStyle = color || "#000";
+        for (var dy = -rad; dy <= rad; dy++) {
+          var w = Math.floor(Math.sqrt(rad * rad - dy * dy));
+          g.fillRect(x - w, y + dy, w * 2 + 1, 1);
+        }
       }
 
-      // Maria — broad mid-tone patches under the craters
-      g.fillStyle = PAL.moonMid;
-      g.fillRect(cx + 2, cy - 4, 4, 2);
-      g.fillRect(cx + 3, cy - 2, 2, 1);
-      g.fillRect(cx - 8, cy - 1, 2, 2);
-
-      // Craters
-      g.fillStyle = PAL.moonDark;
-      g.fillRect(cx - 4, cy - 2, 3, 2);
-      g.fillRect(cx + 1, cy + 3, 2, 2);
-      g.fillRect(cx - 1, cy - 6, 2, 1);
-      g.fillRect(cx + 4, cy - 4, 2, 2);
-      g.fillRect(cx - 7, cy + 2, 2, 2);
-      g.fillRect(cx - 3, cy + 5, 3, 2);
-      g.fillRect(cx + 6, cy - 1, 1, 1);
-      g.fillRect(cx - 6, cy - 5, 1, 1);
-      g.fillRect(cx + 3, cy - 8, 1, 1);
-
-      // Sunlit lower rims on the two largest craters
-      g.fillStyle = PAL.moonLight;
-      g.fillRect(cx - 3, cy, 2, 1);
-      g.fillRect(cx - 2, cy + 7, 2, 1);
+      // Crescent: outlined gold disc with a bite punched out toward the
+      // upper left, so the horns open left like a waxing moon
+      disc(cx, cy, r, PAL.moonDark);
+      disc(cx, cy, r - 1, PAL.moon);
+      disc(cx, cy, r - 3, PAL.moonLight);
+      var bx = cx - Math.round(r * 0.55), by = cy - Math.round(r * 0.25);
+      disc(bx, by, r - 2, null, "destination-out");
+      disc(bx, by, r - 1, PAL.moonDark, "source-atop");
+      g.globalCompositeOperation = "source-over";
       return c;
     }
 
@@ -395,8 +376,8 @@
       var my = Math.round(H * 0.2 - curS * TRAVEL * 0.25);
       if (my > -30) {
         var halo = ctx.createRadialGradient(mx, my, 2, mx, my, 26);
-        halo.addColorStop(0, "rgba(232,193,90,0.10)");
-        halo.addColorStop(1, "rgba(232,193,90,0)");
+        halo.addColorStop(0, "rgba(255,213,79,0.10)");
+        halo.addColorStop(1, "rgba(255,213,79,0)");
         ctx.fillStyle = halo;
         ctx.fillRect(mx - 26, my - 26, 52, 52);
         ctx.drawImage(moonSprite, mx - (moonSprite.width >> 1), my - (moonSprite.height >> 1));
